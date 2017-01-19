@@ -88,6 +88,41 @@ I have used [NVIDIA](https://images.nvidia.com/content/tegra/automotive/images/2
   
   Layer 2
       
-     * 
+     * 24 - 5 X 5 filters. ELU as non-linear function. MaxPool of 2 X 2 and stride of 1 X 1.
+  
+  Layer 3
+      
+     * 36 - 5 X 5 filters. ELU as non-linear function. MaxPool of 2 X 2 and stride of 1 X 1.
    
-   
+  Layer 4
+      
+     * 48 - 5 X 5 filters. ELU as non-linear function. MaxPool of 2 X 2 and stride of 1 X 1.
+  
+  Layer 5
+      
+     * 64 - 3 X 3 filters. ELU as non-linear function. Dropout of 0.5. MaxPool of 2 X 2 and stride of 1 X 1.
+  
+  Layer 6
+  
+     * 64 - 3 X 3 filters. ELU as non-linear function. Dropout of 0.5. MaxPool of 2 X 2 and stride of 1 X 1.
+     
+  Layer 7
+  
+     * Flatten and then Fully Connected Layer of 1164. ELU as non-linear function. Dropout of 0.5.
+  
+  Layer 8
+  
+     * Fully Connected Layer of 100. ELU as non-linear function.
+  
+  Layer 9
+  
+     * Fully Connected Layer of 50. ELU as non-linear function.
+  
+  Layer 10
+  
+     * Fully Connected Layer of 10. ELU as non-linear function.
+  
+  Layer 11
+  
+     * Final Output Layer of 1.
+  
