@@ -157,6 +157,6 @@ I have used [NVIDIA](https://images.nvidia.com/content/tegra/automotive/images/2
  
  1) If graphics quality is increased then the model struggles it's way through the tracks. The reason being that low quality images were used for training. So, ideally simulator should be used to generate high quality images and train the model on those images.
  
- 2) Throttle is constant at 0.3 for now but Adaptipe throttling should be done so as to help the car to smoothly move around the track.
+ 2) Throttle is constant at 0.3 for now but Adaptive throttling should be done so as to help the car to run around the track in more real life like scenario.
  
  3) Weather conditions may change. So, training for different weather conditions need to taken care of so that the model becomes much more generalized.
