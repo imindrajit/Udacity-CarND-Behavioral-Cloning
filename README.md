@@ -46,7 +46,7 @@ There are around 8000 unique rows in **driving_log.csv**. Each row has center, l
    
    Crop Image
    
-      * Informations like horizon in background and bonnet of car are not useful for predicting the steering angle. So, we           will remove them.
+      * Informations like horizon in background and bonnet of car are not useful for predicting the steering angle. So, we will remove them.
       
       * Top 25% of the image and bottom 25 units are cropped away.
    
@@ -70,4 +70,24 @@ There are around 8000 unique rows in **driving_log.csv**. Each row has center, l
    
       * The image obtained after passing through the above steps is reshaped to (64, 64, 3).
 
+Data is augmented/generated on the fly using python generators. So, the model effectively sees new images everytime.
+
 I would like to thank [Vivek](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.jwzy6grgx) and [Kaspar Sakmann](https://medium.com/@ksakmann/behavioral-cloning-make-a-car-drive-like-yourself-dc6021152713#.8xghuqf53) for their wonderful blogposts which really helped me out a lot here.
+
+# Model
+
+I have used [NVIDIA](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)  model as convolutional neural network in this project.
+  
+  Input Image
+     
+     * Size -> (64, 64, 3)
+  
+  Layer 1
+  
+     * Lamba layer which normalizes all pixel values between [-1, 1]. Normalization helps the model to converge faster.
+  
+  Layer 2
+      
+     * 
+   
+   
