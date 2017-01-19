@@ -8,7 +8,7 @@ This project is part of Udacity's Self-Driven Car Nanodegree Program. The car ha
 
 Udacity data has been used in this project. There is a file **data_exploration.ipynb** which  shows information about the data provided. Also, a sample output of an input through the augmentation pipeline is provided in the same file. 
 
-# Training and Validation data Split
+# Training and Validation Data Split
 
 As evident from the data exploration file, most of the steering angles are in and around 0, so, to reduce high bias :-
 
@@ -25,6 +25,15 @@ As evident from the data exploration file, most of the steering angles are in an
 
 There are around 8000 unique rows in **driving_log.csv**. Each row has center, left and right images.
 
+1) In training generator, any row from the training data is randomly picked.
+
+2) Then, either of the left, right or center images are also selected randomly. Also, the steering angle associated with the images.
+
+3) If selected image is that of center then, the original steering angle remains same.
+
+4) If selected image is that of left then, a fixed angle of 0.17 is added to the original steering angle.
+
+5) If selected image is that of right then,  a fixed angle of -0.17 is added to the original steering angle.
 
 
 # Augmentation Techniques
