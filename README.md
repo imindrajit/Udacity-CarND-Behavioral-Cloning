@@ -38,4 +38,8 @@ There are around 8000 unique rows in **driving_log.csv**. Each row has center, l
 
 # Augmentation Techniques
 
+  ### Shearing
+  
+      * Out of
+
 Finally, I would like to thank [Vivek](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.jwzy6grgx) and [Kaspar Sakmann](https://medium.com/@ksakmann/behavioral-cloning-make-a-car-drive-like-yourself-dc6021152713#.8xghuqf53) for their wonderful blogposts which really helped me out a lot.
