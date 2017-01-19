@@ -28,21 +28,23 @@ def cnn_model():
 
     model.add(Convolution2D(48, 5, 5, subsample=(2, 2), border_mode="same", init="he_normal"))
     model.add(ELU())
+    model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
+
+    model.add(Convolution2D(64, 3, 3, subsample=(1, 1), border_mode="same", init="he_normal"))
+    model.add(ELU())
     model.add(Dropout(.5))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
 
     model.add(Convolution2D(64, 3, 3, subsample=(1, 1), border_mode="same", init="he_normal"))
     model.add(ELU())
-    model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
-
-    model.add(Convolution2D(64, 3, 3, subsample=(1, 1), border_mode="same", init="he_normal"))
-    model.add(ELU())
+    model.add(Dropout(.5))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
 
     model.add(Flatten())
 
     model.add(Dense(1164, init="he_normal"))
     model.add(ELU())
+    model.add(Dropout(.5))
 
     model.add(Dense(100, init="he_normal"))
     model.add(ELU())
