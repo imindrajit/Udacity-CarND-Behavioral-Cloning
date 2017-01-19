@@ -38,8 +38,36 @@ There are around 8000 unique rows in **driving_log.csv**. Each row has center, l
 
 # Augmentation Techniques
 
-  ### Shearing
+   Shearing
   
-      * Out of
+      * Shearing is applied randomly on 90% of the training images. Rest 10% are left as it.
+      
+      * Bend the image randomly and also change the corresponding steering angle associated with it.
+   
+   Crop Image
+   
+      * Informations like horizon in background and bonnet of car are not useful for predicting the steering angle. So, we           will remove them.
+      
+      * Top 25% of the image and bottom 25 units are cropped away.
+   
+   Flip
+      
+      * Randomly flip 50% of the training image so that we can have more generalized images.
+      
+      * If flipping condition is true, then flip the image and also steering_angle = -1 * original_steering_angle.
+   
+   Brightness
+   
+      * Change the brightness of the images randomly so that the model gets acclimatized to different light conditions.
+      
+      * The image is converted from RGB to HSV color channel.
+      
+      * The V channel is then randomly multiplied by some value.
+      
+      * The new image is again converted back to RGB.
+   
+   Resize
+   
+      * The image obtained after passing through the above steps is reshaped to (64, 64, 3).
 
-Finally, I would like to thank [Vivek](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.jwzy6grgx) and [Kaspar Sakmann](https://medium.com/@ksakmann/behavioral-cloning-make-a-car-drive-like-yourself-dc6021152713#.8xghuqf53) for their wonderful blogposts which really helped me out a lot.
+I would like to thank [Vivek](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.jwzy6grgx) and [Kaspar Sakmann](https://medium.com/@ksakmann/behavioral-cloning-make-a-car-drive-like-yourself-dc6021152713#.8xghuqf53) for their wonderful blogposts which really helped me out a lot here.
