@@ -6,4 +6,4 @@ This project is part of Udacity's Self-Driven Car Nanodegree Program. The car ha
 
 # Data Exploration
 
-Udacity data has been used in this project. There is a file * data_exploration.ipynb which  shows information about the data provided. Also, a sample output of an input through the augmentation pipeline is provided in the same file. 
+Udacity data has been used in this project. There is a file *data_exploration.ipynb* which  shows information about the data provided. Also, a sample output of an input through the augmentation pipeline is provided in the same file. 
