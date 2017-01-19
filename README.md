@@ -10,6 +10,16 @@ Udacity data has been used in this project. There is a file **data_exploration.i
 
 # Training and Validation data Split
 
+As evident from the data exploration file, most of the steering angles are in and around 0, so, to reduce high bias :-
+
+1) 25% of the data is randomly dropped from training in which steering angle is 0.
+
+2) 75% of the data where steering angle is 0 and rest of the data where steering angle is not 0 are mixed together.
+
+3) 90% of the mixed data is used for training and rest 10% for validation. 
+
+4) There is no need for test data as the track on which the car runs is itself a test data.
+
 
 # Data Preprocessing
 
