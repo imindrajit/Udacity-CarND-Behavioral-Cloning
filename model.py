@@ -14,6 +14,7 @@ LEARNING_RATE = 0.0001
 
 
 def cnn_model():
+    '''NVIDIA Model has been used'''
     model = Sequential()
 
     model.add(Lambda(lambda x: x/127.5 - 1., input_shape=(64, 64, 3)))
@@ -27,23 +28,21 @@ def cnn_model():
 
     model.add(Convolution2D(48, 5, 5, subsample=(2, 2), border_mode="same", init="he_normal"))
     model.add(ELU())
-    model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
-
-    model.add(Convolution2D(64, 3, 3, subsample=(1, 1), border_mode="same", init="he_normal"))
-    model.add(ELU())
     model.add(Dropout(.5))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
 
     model.add(Convolution2D(64, 3, 3, subsample=(1, 1), border_mode="same", init="he_normal"))
     model.add(ELU())
-    model.add(Dropout(.5))
+    model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
+
+    model.add(Convolution2D(64, 3, 3, subsample=(1, 1), border_mode="same", init="he_normal"))
+    model.add(ELU())
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
 
     model.add(Flatten())
 
     model.add(Dense(1164, init="he_normal"))
     model.add(ELU())
-    model.add(Dropout(.5))
 
     model.add(Dense(100, init="he_normal"))
     model.add(ELU())
@@ -65,6 +64,7 @@ if __name__ == "__main__":
     training_data, validation_data = read_shuffle_split_data(split_ratio=0.9)
     model = cnn_model()
 
+    '''Training and Validation generators'''
     training_generator = get_training_data_generator(training_data, batch_size=BATCH_SIZE)
     validation_generator = get_validation_data_generator(validation_data, batch_size=BATCH_SIZE)
 
@@ -77,6 +77,6 @@ if __name__ == "__main__":
 
     print("Saving model weights and configuration file.")
 
-    model.save_weights('model.h5')  # always save your weights after training or during training
+    model.save_weights('model.h5')
     with open('model.json', 'w') as outfile:
         outfile.write(model.to_json())
